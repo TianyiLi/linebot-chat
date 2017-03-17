@@ -65,6 +65,8 @@ interface UserDetail {
 
 /**
  * https://devdocs.line.me/en/#send-message-object
+ * 
+ * on proccessing
  */
 declare module MessageObject {
     interface Text {
