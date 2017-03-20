@@ -1,5 +1,5 @@
 import * as events from 'events';
-import * as fetch from 'node-fetch';
+import fetch from 'node-fetch';
 import * as crypto from 'crypto';
 import * as http from 'http';
 import * as bodyParser from 'body-parser';
@@ -124,12 +124,10 @@ class LineBot extends events.EventEmitter {
     }
 
     get: (path: string) => Promise<Response> = (path) => {
-        let f: any = fetch;
-        return f(this.endpoint + path, { method: 'GET', headers: this.headers });
+        return fetch(this.endpoint + path, { method: 'GET', headers: this.headers });
     }
     post: (path: string, body?: any) => Promise<Response> = (path, body) => {
-        let f: any = fetch;
-        return f(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
+        return fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
     }
     parser() {
         const parser = bodyParser.json({
